@@ -1,0 +1,21 @@
+{% extends 'ourapp/base.html' %}
+
+
+
+{% block body_block %}
+  {% if registered %}
+  <h1 class="my-4">kam karna hai isme abhi</h1>
+  {% else %}
+  <h1 class="my-4">register not complete</h1>
+
+
+  <form enctype="multipart/form-data" method="post" class="my-4">
+    {% csrf_token %}
+    <!--gathering info from form-->
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+
+    <input type="submit" name="" value="Register">
+  </form>
+  {% endif %}
+{% endblock %}
